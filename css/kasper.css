@@ -1,0 +1,934 @@
+:root {
+    --main-color: #19c8fa;
+    --transparent-color:rgb(15 116 143 /80%);
+    --main-section:80px
+}
+
+/* start globel rule */
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+ul {
+    list-style: none;
+}
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* small */
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+/* medium */
+@media (min-width:992px) {
+    .container {
+        width: 970px;
+    }
+}
+/* large */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+/* end globel rule */
+
+/* globel class */
+.main-heading { /* هذا الكلاس عام احتاجة اكثر من مرة */
+    text-align: center;
+    margin: 40px 0 0;
+}
+.main-heading h2 {
+    font-size: 30px;
+    font-weight: normal;
+    text-transform: uppercase;
+    margin-bottom: 60px;
+    position: relative;
+}
+.main-heading h2::before {
+    content: "";
+    height: 1px;
+    width: 120px;
+    background-color: black;
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.main-heading h2::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid black;
+    background-color: white;
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.main-heading p {
+    width: 550px;
+    color: #777;
+    margin: 0 auto 100px;
+     max-width: 100%;  /* للمبايل حتى ميطلع خارج الصفحة  */
+}
+/* globel class */
+
+/* start header */
+
+header {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+}
+/* لكي اتمكن من وضع خلفية صورة */
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    min-height: 79px; 
+}
+header .container img {
+    width: 100px;
+    height: 50px;
+}
+header nav {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+header nav .toggle-menu {
+    font-size: 30px;
+    color: white;
+}
+@media (min-width:768px) {
+    header nav .toggle-menu {
+        display: none;
+    }
+}
+
+header nav ul {
+    display: flex;
+}
+@media (max-width:767px) {
+    header nav ul {
+        display: none;
+    }
+    header nav .toggle-menu:hover+ul {
+        display: flex;
+        flex-flow: column;
+        position: absolute;
+        top: 100%;
+        background-color: #000000a8;
+        width: 120px;
+    }
+    header nav li a {
+        padding: 20px !important;
+    }
+    /*
+    لماذا الانبورتنت */
+    header nav .toggle-menu {
+        margin-right: 10px;
+    }
+
+}
+nav ul li a {
+    padding: 30px 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    display: block;
+    transition: 0.3s;
+}
+header .container::after {
+    content: "";
+    height: 1px;
+    width: calc(100% - 30px);
+    background-color: black;
+    position: absolute;
+    bottom: 0px;
+}
+nav ul li a:hover,
+nav ul .active a {
+    color: var(--main-color);
+    border-bottom: 2px solid;
+    border-color: var(--main-color);
+}
+header .form {
+    width: 40px;
+    height: 30px;
+    border-left: 1px solid white;
+    position: relative;
+}
+header .form i {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 20px;
+}
+/* end header */
+/* start landing */
+.landing {
+    background-image: url("../img/c419ef872738a37d8aef5eaa817fd597.jpg");
+    height: 100vh;
+    background-size: cover;
+    position: relative;
+}
+.landing .overlay {
+    background-color: #00000042;
+    width: 100%;
+    height: 100%;
+}
+.landing .overlay .text {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50%;
+    padding: 40px;
+    background-color: var(--transparent-color);
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    border-top-right-radius: 8%;
+    border-bottom-right-radius: 8% ;
+}
+.landing .overlay .text .content {
+    max-width: 400px;
+}
+.landing .overlay .text .content h2 {
+    margin-bottom: 20px;
+    font-size: 25px;
+    line-height: 1.5;
+}
+.landing .overlay .text .content p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+@media (max-width:767px) {
+    .landing {
+        height: 80vh;
+    }
+    .landing .overlay .text {
+        width: 100%;
+        border-radius: 0;
+    }
+    .landing i {
+        display: none;
+    }
+}
+
+.landing i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 30px;
+}
+.landing .fa-angle-left {
+    left: 5px;
+}
+.landing .fa-angle-right {
+    right: 5px;
+}
+.landing .bullets {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+.landing .bullets li {
+    width: 20px;
+    height: 20px;
+    border: 1px solid white;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+.landing .bullets .active {
+    background-color: var(--main-color);
+    border: var(--main-color);
+}
+/* end landing */
+
+
+/* start services */
+.services {
+    padding-top: var(--main-section);
+    padding-bottom: var(--main-section);
+}
+@media (min-width:768px) {
+    .services .ser {
+        display: grid;
+        grid-template-columns: repeat(auto-fill , minmax(450px , 1fr));
+        grid-column-gap: 40px;
+        grid-row-gap: 30px;
+    }
+}
+.services .ser-box {
+    display: flex;
+
+}
+.services .ser-box i {
+    margin-right: 40px;
+}
+.services .ser-box h2 {
+    color: var(--main-color);
+    margin-bottom: 20px;
+}
+.services .ser-box p {
+    color: #777;
+    line-height: 1.5;
+} 
+
+@media (max-width:768px) {
+    .services .ser-box {
+        flex-flow: column;
+        text-align: center;
+        padding: 20px 0;
+    }
+    .services .ser-box i {
+        margin-bottom: 20px;
+        margin-right: 0;
+    }
+}
+
+/* end services */
+/* start design */
+.design {
+    padding-top: var(--main-section);
+    padding-bottom: var(--main-section);
+    background-image: url(../img/cyber-3400789_1920.jpg);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+.design::before {
+    content: "";
+    position: absolute;
+    background-color: #00000042;
+    width: 100%;
+    height: 100%;
+}
+.design .image {
+    z-index: 2;
+    flex: 1;
+    position: relative;
+    bottom: -190px;
+}
+@media (max-width:768px) {
+    .design .image {
+        display: none;
+    }
+}
+.design .text {
+    z-index: 2;
+    flex: 1;
+    padding: 40px;
+    background-color: var( --transparent-color);
+    color: white;
+}
+.design .text h2 {
+    margin-bottom: 20px;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+.design .text li {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+.design .text li::before {  /* اضافة ايقونات من خلال سي اس اس */
+    font-family: "Font Awesome 5 Free";
+    content: "\f108"; /* اجيبة من الموقع واحط كبلة سلاش */
+    font-weight: 900; /* العرض حتى تضهر الايقونات */
+}
+
+/* end design */
+/* start portfolio */
+.portfolio {
+    padding-top: var(--main-section);
+    padding-bottom: var(--main-section);
+}
+.portfolio .shuflle {
+    display: flex;
+    justify-content: center;
+}
+.portfolio .shuflle li {
+    margin-right: 5px;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+}
+.portfolio .shuflle li.active {
+    background-color: var(--main-color);
+}
+.portfolio .image {
+    display: flex;
+    flex-flow: row wrap;
+}
+@media (min-width: 768px) {
+    .portfolio .image .box {
+        flex-basis: 50%;
+    }
+}
+@media (min-width: 1200px) {
+    .portfolio .image .box {
+        flex-basis: 25%;
+    }
+}
+.portfolio .image .box {
+    overflow: hidden;
+    position: relative;
+}
+.portfolio .image .box img {
+  width: 100%;
+  height: 250px;
+  transition: 0.2s;  
+}
+.portfolio .image .box .caption {
+    padding: 10px;
+    background-color: #ffffffd1;
+    position: absolute;
+    bottom: -100%;/*  مهلة اطلعة بالهوفر بشكل جميل وخفيتة عن طريق اوفر فلو هدن في البوكس اعلاه  واسوي البوتم0*/
+    width: 100%;
+    transition: 0.3s; 
+}
+.portfolio .image .box .caption h3 {
+    color: var(--main-color);
+    font-weight: normal;
+}
+
+.portfolio .image .box:hover .caption {
+    bottom: 0px
+}
+.portfolio .image .box:hover img {
+    transform: rotate(5deg) scale(1.2); /* السكيل لازم احطة حتى يفر وية الشكل */
+}
+.portfolio .button {
+   margin: 10px;
+   position: absolute;
+   left: 49%;
+   transform: translateX(-50%);
+   color: white;
+   background-color: var(--transparent-color);
+   padding: 8px;
+   border-radius: 30%;
+   border-color: var(--transparent-color);
+}
+/* end portfolio */
+/* start video */
+.video {
+    position: relative;
+}
+.video video {
+    width: 100%;
+}
+.video::before {
+    content: "";
+    position: absolute;
+    background-color: #00000042;
+    width: 100%;
+    height: 100%;
+}
+.video .text {
+    z-index: 2;
+    color: white;
+    width: 100%;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    background-color: var(--transparent-color);
+}
+
+.video h2 {
+    margin-bottom: 20px;
+}
+.video input {
+    margin-top: 10px;
+    background-color: white;
+    padding: 5px;
+}
+/* end video */
+/* start about */
+.about {
+    overflow: hidden;
+    padding-top: var(--main-section);
+}
+.about img {
+    position: relative; /* ريليتف لان ماكو خلفية ومترهم بي ابسليوت */
+    bottom: -80px;
+    width: 100%;
+    margin-top: -100px; /* ازيل المسافة العلوية بين الابوت والصورة وتكون بنفسقيمة النزول */
+}
+/* end about */
+/* start statists */
+.statistics {
+    padding-top: var(--main-section);
+    padding-bottom: var(--main-section);
+    background-image: url(../img/ice-6538605_1920.jpg); 
+    text-align: center;   
+}
+
+.statistics .container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding: 30px;
+    background-color: var(--transparent-color);
+
+}
+
+@media (max-width: 768px) {
+    .statistics .box {
+        flex-basis: 100%;
+  
+    }
+}
+@media (min-width: 768px) {
+    .statistics .box {
+        flex-basis: 50%;
+    }
+}
+@media (min-width: 1200px) {
+    .statistics .box {
+        flex-basis: 25%;
+    }
+}
+.statistics .box {
+    padding: 40px;
+    text-align: center;
+
+}
+.statistics i {
+    padding: 10px;
+    color: white;
+    background-color: black;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+.statistics h2 {
+    color: white;
+    margin-bottom: 10px;
+}
+.statistics p {
+    color: white;
+}
+/* end statists */
+/* start skills */
+.our-skills {
+    padding-top: var(--main-section);
+    padding-bottom: var(--main-section);
+}
+
+.our-skills .container {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+}
+@media (min-width: 992px) {
+    .our-skills .container > div {
+        flex-basis: 45%;
+    }
+}
+
+.our-skills .container >div > h3 {
+    font-weight: normal;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.our-skills .container >div >p {
+    color: #777;
+    line-height: 1.8;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.our-skills .container .testimonials .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    
+}
+
+@media (max-width: 767px) {
+    .our-skills .container .testimonials .content {
+        flex-flow: column wrap;
+        text-align: center;
+       
+    }
+    .our-skills .container .testimonials .content img {
+        margin: 0 auto 10px;
+    }
+}
+.our-skills .container .testimonials .content img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    
+
+}
+.our-skills .container .testimonials .content .text {
+    flex-basis: 70%;
+    border-bottom: 1px solid #777;
+    padding-bottom: 10px;
+    line-height: 1.8;
+}
+.our-skills .container .testimonials .content .text p {
+    margin-top: 10px;
+    text-align: right;
+    color: #777;
+}
+.our-skills .container .testimonials {
+    position: relative;
+    margin-bottom: 50px;
+}
+.our-skills .bullets {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    
+}
+.our-skills .bullets li {
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 50%;
+    margin-right: 5px;
+}
+.our-skills .bullets li.active {
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--main-color);
+    border-radius: 50%;
+    background-color: var(--main-color);
+    margin-right: 5px;
+}
+/* هنا في المهارات معرفت 
+ليش حدد النسبة في اجتي امال!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+
+/* يقال انه الشي يتم برمجيا وما اكدر اعدل عية من سياس اس فلازم احطة في اجتيامال */
+.our-skills .container .skills .prog-holder  h4 {
+    font-weight: normal;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+.our-skills .container .skills .prog-holder .prog {
+    height: 20px;
+    background-color: #8080805e;
+}
+
+  .our-skills .skills .prog-holder .prog span {
+    display: block;
+    background-color: var(--main-color);
+    height: 100%;
+    position: relative;
+
+}
+  .our-skills .skills .prog-holder .prog span::before {
+    content: attr(data-progress);
+    position: absolute;
+    background-color: black;
+    color: white;
+    top: -40px;
+    right: -18px;
+    padding: 4px 0;
+    width: 40px;
+    text-align: center;
+    border-radius: 4px;
+  }
+  .our-skills .skills .prog-holder .prog span::after {
+    content: "";
+    position: absolute;
+    border-style: solid;
+    border-width: 8px;
+    border-color: black transparent transparent;
+    right: -8px;
+    top: -15px;
+  }
+/* end skills */
+/* start queat */
+.queat {
+    padding-top: var(--main-section);
+    padding-bottom: var(--main-section);
+    background-image: url(../img/ice-6538605_1920.jpg);
+    position: relative;
+}
+.queat::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: #00000042;
+    width: 100%;
+    height: 100%;
+}
+.queat .container {
+position: relative;
+}
+
+.queat .container q {
+    display: block; /*  اسوي بلوك حني اطبق علية تيكست انلاين */
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+
+}
+.queat .container p {
+    text-align: center;
+    color: white;
+}
+/* end queat */
+/* start pricing */
+.pricing {
+    padding-top: var(--main-section);
+    padding-bottom: var(--main-section);
+}
+
+.pricing .container .list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill , minmax(250px , 1fr));
+    gap: 20px;
+    text-align: center;
+}
+.pricing .container .list .box {
+    margin-bottom: 30px;
+}
+.pricing .container .list .box .head {
+    padding: 20px;
+}
+.pricing .container .list .box .head p {
+    text-transform: uppercase
+}
+.pricing .container .list .box .head h2 {
+    font-size: 50px;
+    font-weight: 600;
+    padding: 20px;
+    position: relative;
+}
+.pricing .container .list .box .head h2::before {
+
+    content: "$";
+    font-size: 24px;
+    font-weight: 500;
+    position: absolute;
+    top: 10px;
+    left: 70px;
+}
+.pricing .container .list .box .head h2::after {
+    content: "/MO";
+    font-size: 15px;
+    font-weight: 500;
+    position: absolute;
+    bottom: 10px;
+    right: 65px;
+}
+
+.pricing .container .list .box .body p {
+    padding: 20px;
+    border-bottom: 2px solid var(--main-color);
+    width: 60%;
+    margin: 0 auto;
+}
+.pricing .container .list .box .body p:last-child {
+    width: 100%;
+}
+.pricing .box .head {
+    border-top: 2px solid var(--main-color);
+    border-bottom: 2px solid var(--main-color);
+}
+.pricing .container .list .box .footer  {
+    margin: 30px 0;
+}
+.pricing .container .list .box .footer a {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: black;
+    border: 2px solid var(--main-color);
+}
+.pricing .container > p {
+    text-align: center;
+    margin-top: 50px;
+}
+.pricing .container > p:last-child a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    background-color: var(--main-color);
+}
+/* end pricing */
+/* start subscribe */
+.subscribe {
+    padding-top: var(--main-section);
+    padding-bottom: var(--main-section);
+    background-image: url(../img/pexels-pixabay-41949\ \(1\).jpg);
+    background-size: cover;
+}
+.subscribe .container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.subscribe .container form {
+    border: 1px solid white;
+    display: flex;
+
+    margin: 0 auto;
+    color: white;
+    position: relative;
+}
+.subscribe .container form i {
+    padding: 10px;
+}
+.subscribe .container form input[type="email"] {
+    flex: 1;
+    background: none; /* ازالة الخلفية والبوردر */
+    border: none;
+    caret-color: var(--main-color);
+}
+.subscribe .container form input::placeholder {
+    color: white;
+}
+.container form input[type="submit"] {
+    padding: 10px;
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+}
+.subscribe .container form input[type="email"]:focus, .container form input[type="submit"]:focus {
+    outline: none;
+}
+.subscribe .container p {
+    color: white;
+    margin: 20px auto;
+    text-align: center;
+}
+/* start subscribe */
+/* start contact us */
+.contact-us {
+    padding-top: var(--main-section);
+    padding-bottom: var(--main-section);
+}
+
+.contact-us .container .content {
+    display: flex;
+    justify-content: space-between;
+}
+@media (max-width: 767px) {
+    .contact-us .container .content {
+        flex-direction: column;
+    }
+}
+
+.contact-us .container form {
+    flex-basis: 70%;
+}
+.contact-us .container form .main-input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+.contact-us .container form textarea {
+    height: 200px;
+}
+.contact-us .container form input[type="submit"] {
+    display: flex;
+    margin-left: auto; /* استخدمت المارجن مع الفلكس لتحريك العنصر الى النهاية وتكون بديلة للجستفاي في حالة لم تعمل */
+    border: none;
+    padding: 20px;
+    color: white;
+}
+.contact-us .container .info h4 {
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.contact-us .container .info p {
+    margin-bottom: 75px;
+    font-size: 15px;
+    color: #777;
+}
+.contact-us .container .info address {
+    font-size: 15px;
+    color: #777;
+}
+@media (max-width: 767px) {
+    .contact-us .container .info {
+        margin-top: 50px;
+        text-align: center;
+    }
+}
+/* end contact us */
+/* start footer  */
+footer {
+    padding-top: var(--main-section);
+    padding-bottom: var(--main-section);
+    background-image: url(../img/pexels-pixabay-41949\ \(1\).jpg);
+    position: relative;
+}
+footer::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: #00000075;
+    width: 100%;
+    height: 100%;
+}
+footer .container {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    position: relative;
+}
+footer .container img {
+    width: 200px;
+    margin-bottom: 20px;
+}
+footer .container h4 {
+    color: white;
+    font-size: 30px;
+    font-weight: 500;
+    padding: 15px;
+    border-bottom: 2px solid;
+}
+footer .container div {
+    display: flex;
+}
+footer .container div i {
+    color: white;
+    font-size: 24px;
+    padding: 10px 20px;
+}
+footer p {
+    color: white
+}
+/* end footer  */

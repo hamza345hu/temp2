@@ -1,0 +1,26 @@
+{
+	"folders": [
+		{
+			"path": "..\\edabit"
+		},
+		{
+			"path": "..\\temp3"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "temp3"
+	},
+	"launch": {
+		"configurations": [
+			{
+				"name": "Launch Microsoft Edge and open the Edge DevTools",
+				"request": "launch",
+				"type": "vscode-edge-devtools.debug",
+				"url": ""
+			}
+		]
+	}
+}
